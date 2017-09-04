@@ -194,6 +194,8 @@
 
         bl      leave_hypervisor_to_guest /* Mask IRQ on return */
 
+        bl      setup_single_step
+
         exit_guest \compat
 
         .endif
