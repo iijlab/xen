@@ -103,6 +103,7 @@ struct arch_domain
 
     /* Monitor options */
     struct {
+        uint8_t single_step_enabled     : 1;
         uint8_t privileged_call_enabled : 1;
     } monitor;
 
