@@ -231,6 +231,7 @@ struct arch_vcpu
      */
     bool need_flush_to_ram;
 
+    bool single_step;
 }  __cacheline_aligned;
 
 void vcpu_show_execution_state(struct vcpu *);
