@@ -44,6 +44,7 @@
 #include <asm/cpufeature.h>
 #include <asm/event.h>
 #include <asm/hsr.h>
+#include <asm/monitor.h>
 #include <asm/mmio.h>
 #include <asm/regs.h>
 #include <asm/smccc.h>
@@ -2260,7 +2261,7 @@ void do_trap_fiq(struct cpu_user_regs *regs)
     gic_interrupt(regs, 1);
 }
 
-asmlinkage void setup_single_step(void)
+void setup_single_step(void)
 {
     uint32_t mdscr, mdcr;
     struct vcpu *v = current;
