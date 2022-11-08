@@ -2263,15 +2263,15 @@ void do_trap_fiq(struct cpu_user_regs *regs)
 
 void setup_single_step(void)
 {
-    uint32_t mdscr, mdcr;
+    uint64_t mdscr, mdcr;
     struct vcpu *v = current;
     struct cpu_user_regs *regs = guest_cpu_user_regs();
 
 #define MDSCR_EL1_SS    (_AC(1,U) << 0)
 #define SPSR_EL2_SS     (_AC(1,U) << 21)
 
-    mdscr = READ_SYSREG32(MDSCR_EL1);
-    mdcr = READ_SYSREG32(MDCR_EL2);
+    mdscr = READ_SYSREG(MDSCR_EL1);
+    mdcr = READ_SYSREG(MDCR_EL2);
 
     if ( unlikely(v->arch.single_step) )
     {
